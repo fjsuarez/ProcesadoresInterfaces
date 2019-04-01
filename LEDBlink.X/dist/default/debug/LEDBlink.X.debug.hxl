@@ -1,0 +1,29 @@
+### HEXMate logfile and output summary ###
+### Memory Usage ###
+ Unused memory ranges:
+  8h - FA9h
+  1000h - 3FFFh
+  4000h - 400Dh
+  4012h - 403Fh
+  
+ dist/default/debug\LEDBlink.X.debug.hex ranges:
+  0h - 7h
+  FAAh - FFFh
+  400Eh - 4011h
+  
+### Hex Memory Map ###
+ Legend:
+  - = Unused memory
+  F = Filled ROM
+  S = Stored serial code
+  A = Stored ASCII string
+  R = Reserved for checksum
+  C = Stored checksum result
+  T = Trailing code
+  & = Find & replace opcode
+  X = Find & delete opcode
+  1 = dist/default/debug\LEDBlink.X.debug.hex
+00000000: 11111111--------------------------------------------------------
+00000F80: ------------------------------------------1111111111111111111111
+00000FC0: 1111111111111111111111111111111111111111111111111111111111111111
+00004000: --------------1111----------------------------------------------

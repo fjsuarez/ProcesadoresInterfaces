@@ -1,0 +1,1630 @@
+
+
+Microchip MPLAB XC8 Assembler V2.05 build -831301201 
+                                                                                               Mon Apr 01 03:22:40 2019
+
+Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1 
+     1                           	processor	16F886
+     2                           	opt	pw 120
+     3                           	opt	flic
+     4                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     5                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+     6                           	psect	maintext,global,class=CODE,split=1,delta=2
+     7                           	psect	text1,local,class=CODE,merge=1,delta=2
+     8                           	psect	text2,local,class=CODE,merge=1,delta=2
+     9                           	psect	text3,local,class=CODE,merge=1,delta=2
+    10                           	psect	text4,local,class=CODE,merge=1,delta=2
+    11                           	psect	text5,local,class=CODE,merge=1,delta=2
+    12                           	dabs	1,0x7E,2
+    13  0000                     
+    14                           ; Version 2.05
+    15                           ; Generated 20/12/2018 GMT
+    16                           ; 
+    17                           ; Copyright © 2018, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    18                           ; All rights reserved.
+    19                           ; 
+    20                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    21                           ; 
+    22                           ; Redistribution and use in source and binary forms, with or without modification, are
+    23                           ; permitted provided that the following conditions are met:
+    24                           ; 
+    25                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    26                           ;        conditions and the following disclaimer.
+    27                           ; 
+    28                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    29                           ;        of conditions and the following disclaimer in the documentation and/or other
+    30                           ;        materials provided with the distribution.
+    31                           ; 
+    32                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    33                           ;        software without specific prior written permission.
+    34                           ; 
+    35                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    36                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    37                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    38                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    39                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    40                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    41                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    42                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    43                           ; 
+    44                           ; 
+    45                           ; Code-generator required, PIC16F886 Definitions
+    46                           ; 
+    47                           ; SFR Addresses
+    48  0000                     	;# 
+    49  0001                     	;# 
+    50  0002                     	;# 
+    51  0003                     	;# 
+    52  0004                     	;# 
+    53  0005                     	;# 
+    54  0006                     	;# 
+    55  0007                     	;# 
+    56  0009                     	;# 
+    57  000A                     	;# 
+    58  000B                     	;# 
+    59  000C                     	;# 
+    60  000D                     	;# 
+    61  000E                     	;# 
+    62  000E                     	;# 
+    63  000F                     	;# 
+    64  0010                     	;# 
+    65  0011                     	;# 
+    66  0012                     	;# 
+    67  0013                     	;# 
+    68  0014                     	;# 
+    69  0015                     	;# 
+    70  0015                     	;# 
+    71  0016                     	;# 
+    72  0017                     	;# 
+    73  0018                     	;# 
+    74  0019                     	;# 
+    75  001A                     	;# 
+    76  001B                     	;# 
+    77  001B                     	;# 
+    78  001C                     	;# 
+    79  001D                     	;# 
+    80  001E                     	;# 
+    81  001F                     	;# 
+    82  0081                     	;# 
+    83  0085                     	;# 
+    84  0086                     	;# 
+    85  0087                     	;# 
+    86  0089                     	;# 
+    87  008C                     	;# 
+    88  008D                     	;# 
+    89  008E                     	;# 
+    90  008F                     	;# 
+    91  0090                     	;# 
+    92  0091                     	;# 
+    93  0092                     	;# 
+    94  0093                     	;# 
+    95  0093                     	;# 
+    96  0093                     	;# 
+    97  0094                     	;# 
+    98  0095                     	;# 
+    99  0096                     	;# 
+   100  0097                     	;# 
+   101  0098                     	;# 
+   102  0099                     	;# 
+   103  009A                     	;# 
+   104  009B                     	;# 
+   105  009C                     	;# 
+   106  009D                     	;# 
+   107  009E                     	;# 
+   108  009F                     	;# 
+   109  0105                     	;# 
+   110  0107                     	;# 
+   111  0108                     	;# 
+   112  0109                     	;# 
+   113  010C                     	;# 
+   114  010C                     	;# 
+   115  010D                     	;# 
+   116  010E                     	;# 
+   117  010F                     	;# 
+   118  0185                     	;# 
+   119  0187                     	;# 
+   120  0188                     	;# 
+   121  0189                     	;# 
+   122  018C                     	;# 
+   123  018D                     	;# 
+   124  0000                     	;# 
+   125  0001                     	;# 
+   126  0002                     	;# 
+   127  0003                     	;# 
+   128  0004                     	;# 
+   129  0005                     	;# 
+   130  0006                     	;# 
+   131  0007                     	;# 
+   132  0009                     	;# 
+   133  000A                     	;# 
+   134  000B                     	;# 
+   135  000C                     	;# 
+   136  000D                     	;# 
+   137  000E                     	;# 
+   138  000E                     	;# 
+   139  000F                     	;# 
+   140  0010                     	;# 
+   141  0011                     	;# 
+   142  0012                     	;# 
+   143  0013                     	;# 
+   144  0014                     	;# 
+   145  0015                     	;# 
+   146  0015                     	;# 
+   147  0016                     	;# 
+   148  0017                     	;# 
+   149  0018                     	;# 
+   150  0019                     	;# 
+   151  001A                     	;# 
+   152  001B                     	;# 
+   153  001B                     	;# 
+   154  001C                     	;# 
+   155  001D                     	;# 
+   156  001E                     	;# 
+   157  001F                     	;# 
+   158  0081                     	;# 
+   159  0085                     	;# 
+   160  0086                     	;# 
+   161  0087                     	;# 
+   162  0089                     	;# 
+   163  008C                     	;# 
+   164  008D                     	;# 
+   165  008E                     	;# 
+   166  008F                     	;# 
+   167  0090                     	;# 
+   168  0091                     	;# 
+   169  0092                     	;# 
+   170  0093                     	;# 
+   171  0093                     	;# 
+   172  0093                     	;# 
+   173  0094                     	;# 
+   174  0095                     	;# 
+   175  0096                     	;# 
+   176  0097                     	;# 
+   177  0098                     	;# 
+   178  0099                     	;# 
+   179  009A                     	;# 
+   180  009B                     	;# 
+   181  009C                     	;# 
+   182  009D                     	;# 
+   183  009E                     	;# 
+   184  009F                     	;# 
+   185  0105                     	;# 
+   186  0107                     	;# 
+   187  0108                     	;# 
+   188  0109                     	;# 
+   189  010C                     	;# 
+   190  010C                     	;# 
+   191  010D                     	;# 
+   192  010E                     	;# 
+   193  010F                     	;# 
+   194  0185                     	;# 
+   195  0187                     	;# 
+   196  0188                     	;# 
+   197  0189                     	;# 
+   198  018C                     	;# 
+   199  018D                     	;# 
+   200  0006                     _PORTB	set	6
+   201  0086                     _TRISB	set	134
+   202  0189                     _ANSELH	set	393
+   203                           
+   204                           ; #config settings
+   205  0000                     
+   206                           	psect	cinit
+   207  07FC                     start_initialization:	
+   208  07FC                     __initialization:	
+   209  07FC                     end_of_initialization:	
+   210                           ;End of C runtime variable initialization code
+   211                           
+   212  07FC                     __end_of__initialization:	
+   213  07FC  0183               	clrf	3
+   214  07FD  120A  118A  2D7F   	ljmp	_main	;jump to C main() function
+   215                           
+   216                           	psect	cstackCOMMON
+   217  0070                     __pcstackCOMMON:	
+   218  0070                     ?_patron_a:	
+   219  0070                     ??_patron_a:	
+   220                           ; 1 bytes @ 0x0
+   221                           
+   222  0070                     ?_patron_b:	
+   223                           ; 1 bytes @ 0x0
+   224                           
+   225  0070                     ??_patron_b:	
+   226                           ; 1 bytes @ 0x0
+   227                           
+   228  0070                     ?_patron_c:	
+   229                           ; 1 bytes @ 0x0
+   230                           
+   231  0070                     ??_patron_c:	
+   232                           ; 1 bytes @ 0x0
+   233                           
+   234  0070                     ?_patron_d:	
+   235                           ; 1 bytes @ 0x0
+   236                           
+   237  0070                     ??_patron_d:	
+   238                           ; 1 bytes @ 0x0
+   239                           
+   240  0070                     ?_patron_e:	
+   241                           ; 1 bytes @ 0x0
+   242                           
+   243  0070                     ??_patron_e:	
+   244                           ; 1 bytes @ 0x0
+   245                           
+   246  0070                     ?_main:	
+   247                           ; 1 bytes @ 0x0
+   248                           
+   249                           
+   250                           ; 1 bytes @ 0x0
+   251  0070                     	ds	3
+   252  0073                     patron_a@i:	
+   253  0073                     patron_b@i:	
+   254                           ; 2 bytes @ 0x3
+   255                           
+   256  0073                     patron_c@i:	
+   257                           ; 2 bytes @ 0x3
+   258                           
+   259  0073                     patron_d@i:	
+   260                           ; 2 bytes @ 0x3
+   261                           
+   262  0073                     patron_e@i:	
+   263                           ; 2 bytes @ 0x3
+   264                           
+   265                           
+   266                           ; 2 bytes @ 0x3
+   267  0073                     	ds	2
+   268  0075                     ??_main:	
+   269                           
+   270                           ; 1 bytes @ 0x5
+   271  0075                     	ds	3
+   272                           
+   273                           	psect	maintext
+   274  057F                     __pmaintext:	
+   275 ;;
+   276 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   277 ;;
+   278 ;; *************** function _main *****************
+   279 ;; Defined at:
+   280 ;;		line 130 in file "main.c"
+   281 ;; Parameters:    Size  Location     Type
+   282 ;;		None
+   283 ;; Auto vars:     Size  Location     Type
+   284 ;;		None
+   285 ;; Return value:  Size  Location     Type
+   286 ;;                  1    wreg      void 
+   287 ;; Registers used:
+   288 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   289 ;; Tracked objects:
+   290 ;;		On entry : B00/0
+   291 ;;		On exit  : 0/0
+   292 ;;		Unchanged: 0/0
+   293 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   294 ;;      Params:         0       0       0       0       0
+   295 ;;      Locals:         0       0       0       0       0
+   296 ;;      Temps:          3       0       0       0       0
+   297 ;;      Totals:         3       0       0       0       0
+   298 ;;Total ram usage:        3 bytes
+   299 ;; Hardware stack levels required when called:    1
+   300 ;; This function calls:
+   301 ;;		_patron_a
+   302 ;;		_patron_b
+   303 ;;		_patron_c
+   304 ;;		_patron_d
+   305 ;;		_patron_e
+   306 ;; This function is called by:
+   307 ;;		Startup code after reset
+   308 ;; This function uses a non-reentrant model
+   309 ;;
+   310                           
+   311                           
+   312                           ;psect for function _main
+   313  057F                     _main:	
+   314                           
+   315                           ;main.c: 131:     TRISB &= ~0x1F;
+   316                           
+   317                           ;incstack = 0
+   318                           ; Regs used in _main: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   319  057F  30E0               	movlw	224
+   320  0580  00F5               	movwf	??_main
+   321  0581  0875               	movf	??_main,w
+   322  0582  1683               	bsf	3,5	;RP0=1, select bank1
+   323  0583  1303               	bcf	3,6	;RP1=0, select bank1
+   324  0584  0586               	andwf	6,f	;volatile
+   325                           
+   326                           ;main.c: 132:     ANSELH &= ~0x1F;
+   327  0585  30E0               	movlw	224
+   328  0586  00F5               	movwf	??_main
+   329  0587  0875               	movf	??_main,w
+   330  0588  1683               	bsf	3,5	;RP0=1, select bank3
+   331  0589  1703               	bsf	3,6	;RP1=1, select bank3
+   332  058A  0589               	andwf	9,f	;volatile
+   333                           
+   334                           ;main.c: 133:     PORTB &= ~0x1F;
+   335  058B  30E0               	movlw	224
+   336  058C  00F5               	movwf	??_main
+   337  058D  0875               	movf	??_main,w
+   338  058E  1283               	bcf	3,5	;RP0=0, select bank0
+   339  058F  1303               	bcf	3,6	;RP1=0, select bank0
+   340  0590  0586               	andwf	6,f	;volatile
+   341  0591                     l775:	
+   342                           
+   343                           ;main.c: 135:         patron_a();
+   344  0591  120A  118A  2545  120A  118A  	fcall	_patron_a
+   345                           
+   346                           ;main.c: 136:         _delay((unsigned long)((250)*(8000000/4000.0)));
+   347  0596  3003               	movlw	3
+   348  0597  00F7               	movwf	??_main+2
+   349  0598  308A               	movlw	138
+   350  0599  00F6               	movwf	??_main+1
+   351  059A  3055               	movlw	85
+   352  059B  00F5               	movwf	??_main
+   353  059C                     u67:	
+   354  059C  0BF5               	decfsz	??_main,f
+   355  059D  2D9C               	goto	u67
+   356  059E  0BF6               	decfsz	??_main+1,f
+   357  059F  2D9C               	goto	u67
+   358  05A0  0BF7               	decfsz	??_main+2,f
+   359  05A1  2D9C               	goto	u67
+   360  05A2  2DA3               	nop2
+   361                           
+   362                           ;main.c: 137:         patron_b();
+   363  05A3  120A  118A  272D  120A  118A  	fcall	_patron_b
+   364                           
+   365                           ;main.c: 138:         _delay((unsigned long)((250)*(8000000/4000.0)));
+   366  05A8  3003               	movlw	3
+   367  05A9  00F7               	movwf	??_main+2
+   368  05AA  308A               	movlw	138
+   369  05AB  00F6               	movwf	??_main+1
+   370  05AC  3055               	movlw	85
+   371  05AD  00F5               	movwf	??_main
+   372  05AE                     u77:	
+   373  05AE  0BF5               	decfsz	??_main,f
+   374  05AF  2DAE               	goto	u77
+   375  05B0  0BF6               	decfsz	??_main+1,f
+   376  05B1  2DAE               	goto	u77
+   377  05B2  0BF7               	decfsz	??_main+2,f
+   378  05B3  2DAE               	goto	u77
+   379  05B4  2DB5               	nop2
+   380                           
+   381                           ;main.c: 139:         patron_c();
+   382  05B5  120A  118A  2669  120A  118A  	fcall	_patron_c
+   383                           
+   384                           ;main.c: 140:         _delay((unsigned long)((250)*(8000000/4000.0)));
+   385  05BA  3003               	movlw	3
+   386  05BB  00F7               	movwf	??_main+2
+   387  05BC  308A               	movlw	138
+   388  05BD  00F6               	movwf	??_main+1
+   389  05BE  3055               	movlw	85
+   390  05BF  00F5               	movwf	??_main
+   391  05C0                     u87:	
+   392  05C0  0BF5               	decfsz	??_main,f
+   393  05C1  2DC0               	goto	u87
+   394  05C2  0BF6               	decfsz	??_main+1,f
+   395  05C3  2DC0               	goto	u87
+   396  05C4  0BF7               	decfsz	??_main+2,f
+   397  05C5  2DC0               	goto	u87
+   398  05C6  2DC7               	nop2
+   399                           
+   400                           ;main.c: 141:         patron_d();
+   401  05C7  120A  118A  25EC  120A  118A  	fcall	_patron_d
+   402                           
+   403                           ;main.c: 142:         _delay((unsigned long)((250)*(8000000/4000.0)));
+   404  05CC  3003               	movlw	3
+   405  05CD  00F7               	movwf	??_main+2
+   406  05CE  308A               	movlw	138
+   407  05CF  00F6               	movwf	??_main+1
+   408  05D0  3055               	movlw	85
+   409  05D1  00F5               	movwf	??_main
+   410  05D2                     u97:	
+   411  05D2  0BF5               	decfsz	??_main,f
+   412  05D3  2DD2               	goto	u97
+   413  05D4  0BF6               	decfsz	??_main+1,f
+   414  05D5  2DD2               	goto	u97
+   415  05D6  0BF7               	decfsz	??_main+2,f
+   416  05D7  2DD2               	goto	u97
+   417  05D8  2DD9               	nop2
+   418                           
+   419                           ;main.c: 143:         patron_e();
+   420  05D9  120A  118A  2512  120A  118A  	fcall	_patron_e
+   421                           
+   422                           ;main.c: 144:         _delay((unsigned long)((250)*(8000000/4000.0)));
+   423  05DE  3003               	movlw	3
+   424  05DF  00F7               	movwf	??_main+2
+   425  05E0  308A               	movlw	138
+   426  05E1  00F6               	movwf	??_main+1
+   427  05E2  3055               	movlw	85
+   428  05E3  00F5               	movwf	??_main
+   429  05E4                     u107:	
+   430  05E4  0BF5               	decfsz	??_main,f
+   431  05E5  2DE4               	goto	u107
+   432  05E6  0BF6               	decfsz	??_main+1,f
+   433  05E7  2DE4               	goto	u107
+   434  05E8  0BF7               	decfsz	??_main+2,f
+   435  05E9  2DE4               	goto	u107
+   436  05EA  2DEB               	nop2
+   437  05EB  2D91               	goto	l775
+   438  05EC                     __end_of_main:	
+   439                           
+   440                           	psect	text1
+   441  0512                     __ptext1:	
+   442 ;; *************** function _patron_e *****************
+   443 ;; Defined at:
+   444 ;;		line 120 in file "main.c"
+   445 ;; Parameters:    Size  Location     Type
+   446 ;;		None
+   447 ;; Auto vars:     Size  Location     Type
+   448 ;;  i               2    3[COMMON] int 
+   449 ;; Return value:  Size  Location     Type
+   450 ;;                  1    wreg      void 
+   451 ;; Registers used:
+   452 ;;		wreg, status,2, status,0, btemp+1
+   453 ;; Tracked objects:
+   454 ;;		On entry : 0/0
+   455 ;;		On exit  : 0/0
+   456 ;;		Unchanged: 0/0
+   457 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   458 ;;      Params:         0       0       0       0       0
+   459 ;;      Locals:         2       0       0       0       0
+   460 ;;      Temps:          3       0       0       0       0
+   461 ;;      Totals:         5       0       0       0       0
+   462 ;;Total ram usage:        5 bytes
+   463 ;; Hardware stack levels used:    1
+   464 ;; This function calls:
+   465 ;;		Nothing
+   466 ;; This function is called by:
+   467 ;;		_main
+   468 ;; This function uses a non-reentrant model
+   469 ;;
+   470                           
+   471                           
+   472                           ;psect for function _patron_e
+   473  0512                     _patron_e:	
+   474                           
+   475                           ;main.c: 121:     PORTB |= 0x15;
+   476                           
+   477                           ;incstack = 0
+   478                           ; Regs used in _patron_e: [wreg+status,2+status,0+btemp+1]
+   479  0512  3015               	movlw	21
+   480  0513  00F0               	movwf	??_patron_e
+   481  0514  0870               	movf	??_patron_e,w
+   482  0515  1283               	bcf	3,5	;RP0=0, select bank0
+   483  0516  1303               	bcf	3,6	;RP1=0, select bank0
+   484  0517  0486               	iorwf	6,f	;volatile
+   485                           
+   486                           ;main.c: 122:     for (int i=0; i<8; i++) {
+   487  0518  01F3               	clrf	patron_e@i
+   488  0519  01F4               	clrf	patron_e@i+1
+   489  051A                     l763:	
+   490                           
+   491                           ;main.c: 123:         PORTB ^= 0x1F;
+   492  051A  301F               	movlw	31
+   493  051B  00F0               	movwf	??_patron_e
+   494  051C  0870               	movf	??_patron_e,w
+   495  051D  1283               	bcf	3,5	;RP0=0, select bank0
+   496  051E  1303               	bcf	3,6	;RP1=0, select bank0
+   497  051F  0686               	xorwf	6,f	;volatile
+   498                           
+   499                           ;main.c: 124:         _delay((unsigned long)((250)*(8000000/4000.0)));
+   500  0520  3003               	movlw	3
+   501  0521  00F2               	movwf	??_patron_e+2
+   502  0522  308A               	movlw	138
+   503  0523  00F1               	movwf	??_patron_e+1
+   504  0524  3055               	movlw	85
+   505  0525  00F0               	movwf	??_patron_e
+   506  0526                     u117:	
+   507  0526  0BF0               	decfsz	??_patron_e,f
+   508  0527  2D26               	goto	u117
+   509  0528  0BF1               	decfsz	??_patron_e+1,f
+   510  0529  2D26               	goto	u117
+   511  052A  0BF2               	decfsz	??_patron_e+2,f
+   512  052B  2D26               	goto	u117
+   513  052C  2D2D               	nop2
+   514                           
+   515                           ;main.c: 125:     }
+   516  052D  3001               	movlw	1
+   517  052E  07F3               	addwf	patron_e@i,f
+   518  052F  1803               	skipnc
+   519  0530  0AF4               	incf	patron_e@i+1,f
+   520  0531  3000               	movlw	0
+   521  0532  07F4               	addwf	patron_e@i+1,f
+   522  0533  0874               	movf	patron_e@i+1,w
+   523  0534  3A80               	xorlw	128
+   524  0535  00FF               	movwf	127
+   525  0536  3080               	movlw	128
+   526  0537  027F               	subwf	127,w
+   527  0538  1D03               	skipz
+   528  0539  2D3C               	goto	u55
+   529  053A  3008               	movlw	8
+   530  053B  0273               	subwf	patron_e@i,w
+   531  053C                     u55:	
+   532  053C  1C03               	skipc
+   533  053D  2D1A               	goto	l763
+   534                           
+   535                           ;main.c: 126:     PORTB &= ~0x1F;
+   536  053E  30E0               	movlw	224
+   537  053F  00F0               	movwf	??_patron_e
+   538  0540  0870               	movf	??_patron_e,w
+   539  0541  1283               	bcf	3,5	;RP0=0, select bank0
+   540  0542  1303               	bcf	3,6	;RP1=0, select bank0
+   541  0543  0586               	andwf	6,f	;volatile
+   542  0544  0008               	return
+   543  0545                     __end_of_patron_e:	
+   544                           
+   545                           	psect	text2
+   546  05EC                     __ptext2:	
+   547 ;; *************** function _patron_d *****************
+   548 ;; Defined at:
+   549 ;;		line 103 in file "main.c"
+   550 ;; Parameters:    Size  Location     Type
+   551 ;;		None
+   552 ;; Auto vars:     Size  Location     Type
+   553 ;;  i               2    3[COMMON] int 
+   554 ;; Return value:  Size  Location     Type
+   555 ;;                  1    wreg      void 
+   556 ;; Registers used:
+   557 ;;		wreg, status,2, status,0, btemp+1
+   558 ;; Tracked objects:
+   559 ;;		On entry : 0/0
+   560 ;;		On exit  : 0/0
+   561 ;;		Unchanged: 0/0
+   562 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   563 ;;      Params:         0       0       0       0       0
+   564 ;;      Locals:         2       0       0       0       0
+   565 ;;      Temps:          3       0       0       0       0
+   566 ;;      Totals:         5       0       0       0       0
+   567 ;;Total ram usage:        5 bytes
+   568 ;; Hardware stack levels used:    1
+   569 ;; This function calls:
+   570 ;;		Nothing
+   571 ;; This function is called by:
+   572 ;;		_main
+   573 ;; This function uses a non-reentrant model
+   574 ;;
+   575                           
+   576                           
+   577                           ;psect for function _patron_d
+   578  05EC                     _patron_d:	
+   579                           
+   580                           ;main.c: 104:     for (int i=0; i<2; i++) {
+   581                           
+   582                           ;incstack = 0
+   583                           ; Regs used in _patron_d: [wreg+status,2+status,0+btemp+1]
+   584  05EC  01F3               	clrf	patron_d@i
+   585  05ED  01F4               	clrf	patron_d@i+1
+   586  05EE                     l737:	
+   587                           
+   588                           ;main.c: 105:         PORTB |= 0x11;
+   589  05EE  3011               	movlw	17
+   590  05EF  00F0               	movwf	??_patron_d
+   591  05F0  0870               	movf	??_patron_d,w
+   592  05F1  1283               	bcf	3,5	;RP0=0, select bank0
+   593  05F2  1303               	bcf	3,6	;RP1=0, select bank0
+   594  05F3  0486               	iorwf	6,f	;volatile
+   595                           
+   596                           ;main.c: 106:         _delay((unsigned long)((200)*(8000000/4000.0)));
+   597  05F4  3003               	movlw	3
+   598  05F5  00F2               	movwf	??_patron_d+2
+   599  05F6  3008               	movlw	8
+   600  05F7  00F1               	movwf	??_patron_d+1
+   601  05F8  3077               	movlw	119
+   602  05F9  00F0               	movwf	??_patron_d
+   603  05FA                     u127:	
+   604  05FA  0BF0               	decfsz	??_patron_d,f
+   605  05FB  2DFA               	goto	u127
+   606  05FC  0BF1               	decfsz	??_patron_d+1,f
+   607  05FD  2DFA               	goto	u127
+   608  05FE  0BF2               	decfsz	??_patron_d+2,f
+   609  05FF  2DFA               	goto	u127
+   610                           
+   611                           ;main.c: 107:         PORTB |= 0x0A;
+   612  0600  300A               	movlw	10
+   613  0601  00F0               	movwf	??_patron_d
+   614  0602  0870               	movf	??_patron_d,w
+   615  0603  1283               	bcf	3,5	;RP0=0, select bank0
+   616  0604  1303               	bcf	3,6	;RP1=0, select bank0
+   617  0605  0486               	iorwf	6,f	;volatile
+   618                           
+   619                           ;main.c: 108:         _delay((unsigned long)((200)*(8000000/4000.0)));
+   620  0606  3003               	movlw	3
+   621  0607  00F2               	movwf	??_patron_d+2
+   622  0608  3008               	movlw	8
+   623  0609  00F1               	movwf	??_patron_d+1
+   624  060A  3077               	movlw	119
+   625  060B  00F0               	movwf	??_patron_d
+   626  060C                     u137:	
+   627  060C  0BF0               	decfsz	??_patron_d,f
+   628  060D  2E0C               	goto	u137
+   629  060E  0BF1               	decfsz	??_patron_d+1,f
+   630  060F  2E0C               	goto	u137
+   631  0610  0BF2               	decfsz	??_patron_d+2,f
+   632  0611  2E0C               	goto	u137
+   633                           
+   634                           ;main.c: 109:         PORTB |= 0x04;
+   635  0612  1283               	bcf	3,5	;RP0=0, select bank0
+   636  0613  1303               	bcf	3,6	;RP1=0, select bank0
+   637  0614  1506               	bsf	6,2	;volatile
+   638                           
+   639                           ;main.c: 110:         _delay((unsigned long)((200)*(8000000/4000.0)));
+   640  0615  3003               	movlw	3
+   641  0616  00F2               	movwf	??_patron_d+2
+   642  0617  3008               	movlw	8
+   643  0618  00F1               	movwf	??_patron_d+1
+   644  0619  3077               	movlw	119
+   645  061A  00F0               	movwf	??_patron_d
+   646  061B                     u147:	
+   647  061B  0BF0               	decfsz	??_patron_d,f
+   648  061C  2E1B               	goto	u147
+   649  061D  0BF1               	decfsz	??_patron_d+1,f
+   650  061E  2E1B               	goto	u147
+   651  061F  0BF2               	decfsz	??_patron_d+2,f
+   652  0620  2E1B               	goto	u147
+   653                           
+   654                           ;main.c: 111:         PORTB &= ~0x04;
+   655  0621  30FB               	movlw	251
+   656  0622  00F0               	movwf	??_patron_d
+   657  0623  0870               	movf	??_patron_d,w
+   658  0624  1283               	bcf	3,5	;RP0=0, select bank0
+   659  0625  1303               	bcf	3,6	;RP1=0, select bank0
+   660  0626  0586               	andwf	6,f	;volatile
+   661                           
+   662                           ;main.c: 112:         _delay((unsigned long)((200)*(8000000/4000.0)));
+   663  0627  3003               	movlw	3
+   664  0628  00F2               	movwf	??_patron_d+2
+   665  0629  3008               	movlw	8
+   666  062A  00F1               	movwf	??_patron_d+1
+   667  062B  3077               	movlw	119
+   668  062C  00F0               	movwf	??_patron_d
+   669  062D                     u157:	
+   670  062D  0BF0               	decfsz	??_patron_d,f
+   671  062E  2E2D               	goto	u157
+   672  062F  0BF1               	decfsz	??_patron_d+1,f
+   673  0630  2E2D               	goto	u157
+   674  0631  0BF2               	decfsz	??_patron_d+2,f
+   675  0632  2E2D               	goto	u157
+   676                           
+   677                           ;main.c: 113:         PORTB &= ~0x0A;
+   678  0633  30F5               	movlw	245
+   679  0634  00F0               	movwf	??_patron_d
+   680  0635  0870               	movf	??_patron_d,w
+   681  0636  1283               	bcf	3,5	;RP0=0, select bank0
+   682  0637  1303               	bcf	3,6	;RP1=0, select bank0
+   683  0638  0586               	andwf	6,f	;volatile
+   684                           
+   685                           ;main.c: 114:         _delay((unsigned long)((200)*(8000000/4000.0)));
+   686  0639  3003               	movlw	3
+   687  063A  00F2               	movwf	??_patron_d+2
+   688  063B  3008               	movlw	8
+   689  063C  00F1               	movwf	??_patron_d+1
+   690  063D  3077               	movlw	119
+   691  063E  00F0               	movwf	??_patron_d
+   692  063F                     u167:	
+   693  063F  0BF0               	decfsz	??_patron_d,f
+   694  0640  2E3F               	goto	u167
+   695  0641  0BF1               	decfsz	??_patron_d+1,f
+   696  0642  2E3F               	goto	u167
+   697  0643  0BF2               	decfsz	??_patron_d+2,f
+   698  0644  2E3F               	goto	u167
+   699                           
+   700                           ;main.c: 115:         PORTB &= ~0x11;
+   701  0645  30EE               	movlw	238
+   702  0646  00F0               	movwf	??_patron_d
+   703  0647  0870               	movf	??_patron_d,w
+   704  0648  1283               	bcf	3,5	;RP0=0, select bank0
+   705  0649  1303               	bcf	3,6	;RP1=0, select bank0
+   706  064A  0586               	andwf	6,f	;volatile
+   707                           
+   708                           ;main.c: 116:         _delay((unsigned long)((200)*(8000000/4000.0)));
+   709  064B  3003               	movlw	3
+   710  064C  00F2               	movwf	??_patron_d+2
+   711  064D  3008               	movlw	8
+   712  064E  00F1               	movwf	??_patron_d+1
+   713  064F  3077               	movlw	119
+   714  0650  00F0               	movwf	??_patron_d
+   715  0651                     u177:	
+   716  0651  0BF0               	decfsz	??_patron_d,f
+   717  0652  2E51               	goto	u177
+   718  0653  0BF1               	decfsz	??_patron_d+1,f
+   719  0654  2E51               	goto	u177
+   720  0655  0BF2               	decfsz	??_patron_d+2,f
+   721  0656  2E51               	goto	u177
+   722                           
+   723                           ;main.c: 117:     }
+   724  0657  3001               	movlw	1
+   725  0658  07F3               	addwf	patron_d@i,f
+   726  0659  1803               	skipnc
+   727  065A  0AF4               	incf	patron_d@i+1,f
+   728  065B  3000               	movlw	0
+   729  065C  07F4               	addwf	patron_d@i+1,f
+   730  065D  0874               	movf	patron_d@i+1,w
+   731  065E  3A80               	xorlw	128
+   732  065F  00FF               	movwf	127
+   733  0660  3080               	movlw	128
+   734  0661  027F               	subwf	127,w
+   735  0662  1D03               	skipz
+   736  0663  2E66               	goto	u45
+   737  0664  3002               	movlw	2
+   738  0665  0273               	subwf	patron_d@i,w
+   739  0666                     u45:	
+   740  0666  1803               	btfsc	3,0
+   741  0667  0008               	return
+   742  0668  2DEE               	goto	l737
+   743  0669                     __end_of_patron_d:	
+   744                           
+   745                           	psect	text3
+   746  0669                     __ptext3:	
+   747 ;; *************** function _patron_c *****************
+   748 ;; Defined at:
+   749 ;;		line 72 in file "main.c"
+   750 ;; Parameters:    Size  Location     Type
+   751 ;;		None
+   752 ;; Auto vars:     Size  Location     Type
+   753 ;;  i               2    3[COMMON] int 
+   754 ;; Return value:  Size  Location     Type
+   755 ;;                  1    wreg      void 
+   756 ;; Registers used:
+   757 ;;		wreg, status,2, status,0, btemp+1
+   758 ;; Tracked objects:
+   759 ;;		On entry : 0/0
+   760 ;;		On exit  : 0/0
+   761 ;;		Unchanged: 0/0
+   762 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   763 ;;      Params:         0       0       0       0       0
+   764 ;;      Locals:         2       0       0       0       0
+   765 ;;      Temps:          3       0       0       0       0
+   766 ;;      Totals:         5       0       0       0       0
+   767 ;;Total ram usage:        5 bytes
+   768 ;; Hardware stack levels used:    1
+   769 ;; This function calls:
+   770 ;;		Nothing
+   771 ;; This function is called by:
+   772 ;;		_main
+   773 ;; This function uses a non-reentrant model
+   774 ;;
+   775                           
+   776                           
+   777                           ;psect for function _patron_c
+   778  0669                     _patron_c:	
+   779                           
+   780                           ;main.c: 73:     for(int i=0; i<2; i++) {
+   781                           
+   782                           ;incstack = 0
+   783                           ; Regs used in _patron_c: [wreg+status,2+status,0+btemp+1]
+   784  0669  01F3               	clrf	patron_c@i
+   785  066A  01F4               	clrf	patron_c@i+1
+   786  066B                     l21:	
+   787                           
+   788                           ;main.c: 74:         PORTB |= 0x10;
+   789  066B  1283               	bcf	3,5	;RP0=0, select bank0
+   790  066C  1303               	bcf	3,6	;RP1=0, select bank0
+   791  066D  1606               	bsf	6,4	;volatile
+   792                           
+   793                           ;main.c: 75:         _delay((unsigned long)((100)*(8000000/4000.0)));
+   794  066E  3002               	movlw	2
+   795  066F  00F2               	movwf	??_patron_c+2
+   796  0670  3004               	movlw	4
+   797  0671  00F1               	movwf	??_patron_c+1
+   798  0672  30BA               	movlw	186
+   799  0673  00F0               	movwf	??_patron_c
+   800  0674                     u187:	
+   801  0674  0BF0               	decfsz	??_patron_c,f
+   802  0675  2E74               	goto	u187
+   803  0676  0BF1               	decfsz	??_patron_c+1,f
+   804  0677  2E74               	goto	u187
+   805  0678  0BF2               	decfsz	??_patron_c+2,f
+   806  0679  2E74               	goto	u187
+   807  067A  0000               	nop
+   808                           
+   809                           ;main.c: 76:         PORTB &= ~0x10;
+   810  067B  30EF               	movlw	239
+   811  067C  00F0               	movwf	??_patron_c
+   812  067D  0870               	movf	??_patron_c,w
+   813  067E  1283               	bcf	3,5	;RP0=0, select bank0
+   814  067F  1303               	bcf	3,6	;RP1=0, select bank0
+   815  0680  0586               	andwf	6,f	;volatile
+   816                           
+   817                           ;main.c: 77:         PORTB |= 0x08;
+   818  0681  1586               	bsf	6,3	;volatile
+   819                           
+   820                           ;main.c: 78:         _delay((unsigned long)((100)*(8000000/4000.0)));
+   821  0682  3002               	movlw	2
+   822  0683  00F2               	movwf	??_patron_c+2
+   823  0684  3004               	movlw	4
+   824  0685  00F1               	movwf	??_patron_c+1
+   825  0686  30BA               	movlw	186
+   826  0687  00F0               	movwf	??_patron_c
+   827  0688                     u197:	
+   828  0688  0BF0               	decfsz	??_patron_c,f
+   829  0689  2E88               	goto	u197
+   830  068A  0BF1               	decfsz	??_patron_c+1,f
+   831  068B  2E88               	goto	u197
+   832  068C  0BF2               	decfsz	??_patron_c+2,f
+   833  068D  2E88               	goto	u197
+   834  068E  0000               	nop
+   835                           
+   836                           ;main.c: 79:         PORTB &= ~0x08;
+   837  068F  30F7               	movlw	247
+   838  0690  00F0               	movwf	??_patron_c
+   839  0691  0870               	movf	??_patron_c,w
+   840  0692  1283               	bcf	3,5	;RP0=0, select bank0
+   841  0693  1303               	bcf	3,6	;RP1=0, select bank0
+   842  0694  0586               	andwf	6,f	;volatile
+   843                           
+   844                           ;main.c: 80:         PORTB |= 0x04;
+   845  0695  1506               	bsf	6,2	;volatile
+   846                           
+   847                           ;main.c: 81:         _delay((unsigned long)((100)*(8000000/4000.0)));
+   848  0696  3002               	movlw	2
+   849  0697  00F2               	movwf	??_patron_c+2
+   850  0698  3004               	movlw	4
+   851  0699  00F1               	movwf	??_patron_c+1
+   852  069A  30BA               	movlw	186
+   853  069B  00F0               	movwf	??_patron_c
+   854  069C                     u207:	
+   855  069C  0BF0               	decfsz	??_patron_c,f
+   856  069D  2E9C               	goto	u207
+   857  069E  0BF1               	decfsz	??_patron_c+1,f
+   858  069F  2E9C               	goto	u207
+   859  06A0  0BF2               	decfsz	??_patron_c+2,f
+   860  06A1  2E9C               	goto	u207
+   861  06A2  0000               	nop
+   862                           
+   863                           ;main.c: 82:         PORTB &= ~0x04;
+   864  06A3  30FB               	movlw	251
+   865  06A4  00F0               	movwf	??_patron_c
+   866  06A5  0870               	movf	??_patron_c,w
+   867  06A6  1283               	bcf	3,5	;RP0=0, select bank0
+   868  06A7  1303               	bcf	3,6	;RP1=0, select bank0
+   869  06A8  0586               	andwf	6,f	;volatile
+   870                           
+   871                           ;main.c: 83:         PORTB |= 0x02;
+   872  06A9  1486               	bsf	6,1	;volatile
+   873                           
+   874                           ;main.c: 84:         _delay((unsigned long)((100)*(8000000/4000.0)));
+   875  06AA  3002               	movlw	2
+   876  06AB  00F2               	movwf	??_patron_c+2
+   877  06AC  3004               	movlw	4
+   878  06AD  00F1               	movwf	??_patron_c+1
+   879  06AE  30BA               	movlw	186
+   880  06AF  00F0               	movwf	??_patron_c
+   881  06B0                     u217:	
+   882  06B0  0BF0               	decfsz	??_patron_c,f
+   883  06B1  2EB0               	goto	u217
+   884  06B2  0BF1               	decfsz	??_patron_c+1,f
+   885  06B3  2EB0               	goto	u217
+   886  06B4  0BF2               	decfsz	??_patron_c+2,f
+   887  06B5  2EB0               	goto	u217
+   888  06B6  0000               	nop
+   889                           
+   890                           ;main.c: 85:         PORTB &= ~0x02;
+   891  06B7  30FD               	movlw	253
+   892  06B8  00F0               	movwf	??_patron_c
+   893  06B9  0870               	movf	??_patron_c,w
+   894  06BA  1283               	bcf	3,5	;RP0=0, select bank0
+   895  06BB  1303               	bcf	3,6	;RP1=0, select bank0
+   896  06BC  0586               	andwf	6,f	;volatile
+   897                           
+   898                           ;main.c: 86:         PORTB |= 0x01;
+   899  06BD  1406               	bsf	6,0	;volatile
+   900                           
+   901                           ;main.c: 87:         _delay((unsigned long)((100)*(8000000/4000.0)));
+   902  06BE  3002               	movlw	2
+   903  06BF  00F2               	movwf	??_patron_c+2
+   904  06C0  3004               	movlw	4
+   905  06C1  00F1               	movwf	??_patron_c+1
+   906  06C2  30BA               	movlw	186
+   907  06C3  00F0               	movwf	??_patron_c
+   908  06C4                     u227:	
+   909  06C4  0BF0               	decfsz	??_patron_c,f
+   910  06C5  2EC4               	goto	u227
+   911  06C6  0BF1               	decfsz	??_patron_c+1,f
+   912  06C7  2EC4               	goto	u227
+   913  06C8  0BF2               	decfsz	??_patron_c+2,f
+   914  06C9  2EC4               	goto	u227
+   915  06CA  0000               	nop
+   916                           
+   917                           ;main.c: 88:         PORTB |= 0x02;
+   918  06CB  1283               	bcf	3,5	;RP0=0, select bank0
+   919  06CC  1303               	bcf	3,6	;RP1=0, select bank0
+   920  06CD  1486               	bsf	6,1	;volatile
+   921                           
+   922                           ;main.c: 89:         PORTB &= ~0x01;
+   923  06CE  30FE               	movlw	254
+   924  06CF  00F0               	movwf	??_patron_c
+   925  06D0  0870               	movf	??_patron_c,w
+   926  06D1  0586               	andwf	6,f	;volatile
+   927                           
+   928                           ;main.c: 90:         _delay((unsigned long)((100)*(8000000/4000.0)));
+   929  06D2  3002               	movlw	2
+   930  06D3  00F2               	movwf	??_patron_c+2
+   931  06D4  3004               	movlw	4
+   932  06D5  00F1               	movwf	??_patron_c+1
+   933  06D6  30BA               	movlw	186
+   934  06D7  00F0               	movwf	??_patron_c
+   935  06D8                     u237:	
+   936  06D8  0BF0               	decfsz	??_patron_c,f
+   937  06D9  2ED8               	goto	u237
+   938  06DA  0BF1               	decfsz	??_patron_c+1,f
+   939  06DB  2ED8               	goto	u237
+   940  06DC  0BF2               	decfsz	??_patron_c+2,f
+   941  06DD  2ED8               	goto	u237
+   942  06DE  0000               	nop
+   943                           
+   944                           ;main.c: 91:         PORTB &= ~0x02;
+   945  06DF  30FD               	movlw	253
+   946  06E0  00F0               	movwf	??_patron_c
+   947  06E1  0870               	movf	??_patron_c,w
+   948  06E2  1283               	bcf	3,5	;RP0=0, select bank0
+   949  06E3  1303               	bcf	3,6	;RP1=0, select bank0
+   950  06E4  0586               	andwf	6,f	;volatile
+   951                           
+   952                           ;main.c: 92:         PORTB |= 0x04;
+   953  06E5  1506               	bsf	6,2	;volatile
+   954                           
+   955                           ;main.c: 93:         _delay((unsigned long)((100)*(8000000/4000.0)));
+   956  06E6  3002               	movlw	2
+   957  06E7  00F2               	movwf	??_patron_c+2
+   958  06E8  3004               	movlw	4
+   959  06E9  00F1               	movwf	??_patron_c+1
+   960  06EA  30BA               	movlw	186
+   961  06EB  00F0               	movwf	??_patron_c
+   962  06EC                     u247:	
+   963  06EC  0BF0               	decfsz	??_patron_c,f
+   964  06ED  2EEC               	goto	u247
+   965  06EE  0BF1               	decfsz	??_patron_c+1,f
+   966  06EF  2EEC               	goto	u247
+   967  06F0  0BF2               	decfsz	??_patron_c+2,f
+   968  06F1  2EEC               	goto	u247
+   969  06F2  0000               	nop
+   970                           
+   971                           ;main.c: 94:         PORTB &= ~0x04;
+   972  06F3  30FB               	movlw	251
+   973  06F4  00F0               	movwf	??_patron_c
+   974  06F5  0870               	movf	??_patron_c,w
+   975  06F6  1283               	bcf	3,5	;RP0=0, select bank0
+   976  06F7  1303               	bcf	3,6	;RP1=0, select bank0
+   977  06F8  0586               	andwf	6,f	;volatile
+   978                           
+   979                           ;main.c: 95:         PORTB |= 0x08;
+   980  06F9  1586               	bsf	6,3	;volatile
+   981                           
+   982                           ;main.c: 96:         _delay((unsigned long)((100)*(8000000/4000.0)));
+   983  06FA  3002               	movlw	2
+   984  06FB  00F2               	movwf	??_patron_c+2
+   985  06FC  3004               	movlw	4
+   986  06FD  00F1               	movwf	??_patron_c+1
+   987  06FE  30BA               	movlw	186
+   988  06FF  00F0               	movwf	??_patron_c
+   989  0700                     u257:	
+   990  0700  0BF0               	decfsz	??_patron_c,f
+   991  0701  2F00               	goto	u257
+   992  0702  0BF1               	decfsz	??_patron_c+1,f
+   993  0703  2F00               	goto	u257
+   994  0704  0BF2               	decfsz	??_patron_c+2,f
+   995  0705  2F00               	goto	u257
+   996  0706  0000               	nop
+   997                           
+   998                           ;main.c: 97:         PORTB &= ~0x08;
+   999  0707  30F7               	movlw	247
+  1000  0708  00F0               	movwf	??_patron_c
+  1001  0709  0870               	movf	??_patron_c,w
+  1002  070A  1283               	bcf	3,5	;RP0=0, select bank0
+  1003  070B  1303               	bcf	3,6	;RP1=0, select bank0
+  1004  070C  0586               	andwf	6,f	;volatile
+  1005                           
+  1006                           ;main.c: 98:         PORTB |= 0x10;
+  1007  070D  1606               	bsf	6,4	;volatile
+  1008                           
+  1009                           ;main.c: 99:         _delay((unsigned long)((100)*(8000000/4000.0)));
+  1010  070E  3002               	movlw	2
+  1011  070F  00F2               	movwf	??_patron_c+2
+  1012  0710  3004               	movlw	4
+  1013  0711  00F1               	movwf	??_patron_c+1
+  1014  0712  30BA               	movlw	186
+  1015  0713  00F0               	movwf	??_patron_c
+  1016  0714                     u267:	
+  1017  0714  0BF0               	decfsz	??_patron_c,f
+  1018  0715  2F14               	goto	u267
+  1019  0716  0BF1               	decfsz	??_patron_c+1,f
+  1020  0717  2F14               	goto	u267
+  1021  0718  0BF2               	decfsz	??_patron_c+2,f
+  1022  0719  2F14               	goto	u267
+  1023  071A  0000               	nop
+  1024                           
+  1025                           ;main.c: 100:     }
+  1026  071B  3001               	movlw	1
+  1027  071C  07F3               	addwf	patron_c@i,f
+  1028  071D  1803               	skipnc
+  1029  071E  0AF4               	incf	patron_c@i+1,f
+  1030  071F  3000               	movlw	0
+  1031  0720  07F4               	addwf	patron_c@i+1,f
+  1032  0721  0874               	movf	patron_c@i+1,w
+  1033  0722  3A80               	xorlw	128
+  1034  0723  00FF               	movwf	127
+  1035  0724  3080               	movlw	128
+  1036  0725  027F               	subwf	127,w
+  1037  0726  1D03               	skipz
+  1038  0727  2F2A               	goto	u35
+  1039  0728  3002               	movlw	2
+  1040  0729  0273               	subwf	patron_c@i,w
+  1041  072A                     u35:	
+  1042  072A  1803               	btfsc	3,0
+  1043  072B  0008               	return
+  1044  072C  2E6B               	goto	l21
+  1045  072D                     __end_of_patron_c:	
+  1046                           
+  1047                           	psect	text4
+  1048  072D                     __ptext4:	
+  1049 ;; *************** function _patron_b *****************
+  1050 ;; Defined at:
+  1051 ;;		line 47 in file "main.c"
+  1052 ;; Parameters:    Size  Location     Type
+  1053 ;;		None
+  1054 ;; Auto vars:     Size  Location     Type
+  1055 ;;  i               2    3[COMMON] int 
+  1056 ;; Return value:  Size  Location     Type
+  1057 ;;                  1    wreg      void 
+  1058 ;; Registers used:
+  1059 ;;		wreg, status,2, status,0, btemp+1
+  1060 ;; Tracked objects:
+  1061 ;;		On entry : 0/0
+  1062 ;;		On exit  : 0/0
+  1063 ;;		Unchanged: 0/0
+  1064 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1065 ;;      Params:         0       0       0       0       0
+  1066 ;;      Locals:         2       0       0       0       0
+  1067 ;;      Temps:          3       0       0       0       0
+  1068 ;;      Totals:         5       0       0       0       0
+  1069 ;;Total ram usage:        5 bytes
+  1070 ;; Hardware stack levels used:    1
+  1071 ;; This function calls:
+  1072 ;;		Nothing
+  1073 ;; This function is called by:
+  1074 ;;		_main
+  1075 ;; This function uses a non-reentrant model
+  1076 ;;
+  1077                           
+  1078                           
+  1079                           ;psect for function _patron_b
+  1080  072D                     _patron_b:	
+  1081                           
+  1082                           ;main.c: 48:     for (int i=0; i<2; i++) {
+  1083                           
+  1084                           ;incstack = 0
+  1085                           ; Regs used in _patron_b: [wreg+status,2+status,0+btemp+1]
+  1086  072D  01F3               	clrf	patron_b@i
+  1087  072E  01F4               	clrf	patron_b@i+1
+  1088  072F                     l16:	
+  1089                           
+  1090                           ;main.c: 49:         PORTB |= 0x10;
+  1091  072F  1283               	bcf	3,5	;RP0=0, select bank0
+  1092  0730  1303               	bcf	3,6	;RP1=0, select bank0
+  1093  0731  1606               	bsf	6,4	;volatile
+  1094                           
+  1095                           ;main.c: 50:         _delay((unsigned long)((100)*(8000000/4000.0)));
+  1096  0732  3002               	movlw	2
+  1097  0733  00F2               	movwf	??_patron_b+2
+  1098  0734  3004               	movlw	4
+  1099  0735  00F1               	movwf	??_patron_b+1
+  1100  0736  30BA               	movlw	186
+  1101  0737  00F0               	movwf	??_patron_b
+  1102  0738                     u277:	
+  1103  0738  0BF0               	decfsz	??_patron_b,f
+  1104  0739  2F38               	goto	u277
+  1105  073A  0BF1               	decfsz	??_patron_b+1,f
+  1106  073B  2F38               	goto	u277
+  1107  073C  0BF2               	decfsz	??_patron_b+2,f
+  1108  073D  2F38               	goto	u277
+  1109  073E  0000               	nop
+  1110                           
+  1111                           ;main.c: 51:         PORTB |= 0x18;
+  1112  073F  3018               	movlw	24
+  1113  0740  00F0               	movwf	??_patron_b
+  1114  0741  0870               	movf	??_patron_b,w
+  1115  0742  1283               	bcf	3,5	;RP0=0, select bank0
+  1116  0743  1303               	bcf	3,6	;RP1=0, select bank0
+  1117  0744  0486               	iorwf	6,f	;volatile
+  1118                           
+  1119                           ;main.c: 52:         _delay((unsigned long)((100)*(8000000/4000.0)));
+  1120  0745  3002               	movlw	2
+  1121  0746  00F2               	movwf	??_patron_b+2
+  1122  0747  3004               	movlw	4
+  1123  0748  00F1               	movwf	??_patron_b+1
+  1124  0749  30BA               	movlw	186
+  1125  074A  00F0               	movwf	??_patron_b
+  1126  074B                     u287:	
+  1127  074B  0BF0               	decfsz	??_patron_b,f
+  1128  074C  2F4B               	goto	u287
+  1129  074D  0BF1               	decfsz	??_patron_b+1,f
+  1130  074E  2F4B               	goto	u287
+  1131  074F  0BF2               	decfsz	??_patron_b+2,f
+  1132  0750  2F4B               	goto	u287
+  1133  0751  0000               	nop
+  1134                           
+  1135                           ;main.c: 53:         PORTB |= 0x1C;
+  1136  0752  301C               	movlw	28
+  1137  0753  00F0               	movwf	??_patron_b
+  1138  0754  0870               	movf	??_patron_b,w
+  1139  0755  1283               	bcf	3,5	;RP0=0, select bank0
+  1140  0756  1303               	bcf	3,6	;RP1=0, select bank0
+  1141  0757  0486               	iorwf	6,f	;volatile
+  1142                           
+  1143                           ;main.c: 54:         _delay((unsigned long)((100)*(8000000/4000.0)));
+  1144  0758  3002               	movlw	2
+  1145  0759  00F2               	movwf	??_patron_b+2
+  1146  075A  3004               	movlw	4
+  1147  075B  00F1               	movwf	??_patron_b+1
+  1148  075C  30BA               	movlw	186
+  1149  075D  00F0               	movwf	??_patron_b
+  1150  075E                     u297:	
+  1151  075E  0BF0               	decfsz	??_patron_b,f
+  1152  075F  2F5E               	goto	u297
+  1153  0760  0BF1               	decfsz	??_patron_b+1,f
+  1154  0761  2F5E               	goto	u297
+  1155  0762  0BF2               	decfsz	??_patron_b+2,f
+  1156  0763  2F5E               	goto	u297
+  1157  0764  0000               	nop
+  1158                           
+  1159                           ;main.c: 55:         PORTB |= 0x1E;
+  1160  0765  301E               	movlw	30
+  1161  0766  00F0               	movwf	??_patron_b
+  1162  0767  0870               	movf	??_patron_b,w
+  1163  0768  1283               	bcf	3,5	;RP0=0, select bank0
+  1164  0769  1303               	bcf	3,6	;RP1=0, select bank0
+  1165  076A  0486               	iorwf	6,f	;volatile
+  1166                           
+  1167                           ;main.c: 56:         _delay((unsigned long)((100)*(8000000/4000.0)));
+  1168  076B  3002               	movlw	2
+  1169  076C  00F2               	movwf	??_patron_b+2
+  1170  076D  3004               	movlw	4
+  1171  076E  00F1               	movwf	??_patron_b+1
+  1172  076F  30BA               	movlw	186
+  1173  0770  00F0               	movwf	??_patron_b
+  1174  0771                     u307:	
+  1175  0771  0BF0               	decfsz	??_patron_b,f
+  1176  0772  2F71               	goto	u307
+  1177  0773  0BF1               	decfsz	??_patron_b+1,f
+  1178  0774  2F71               	goto	u307
+  1179  0775  0BF2               	decfsz	??_patron_b+2,f
+  1180  0776  2F71               	goto	u307
+  1181  0777  0000               	nop
+  1182                           
+  1183                           ;main.c: 57:         PORTB |= 0x1F;
+  1184  0778  301F               	movlw	31
+  1185  0779  00F0               	movwf	??_patron_b
+  1186  077A  0870               	movf	??_patron_b,w
+  1187  077B  1283               	bcf	3,5	;RP0=0, select bank0
+  1188  077C  1303               	bcf	3,6	;RP1=0, select bank0
+  1189  077D  0486               	iorwf	6,f	;volatile
+  1190                           
+  1191                           ;main.c: 58:         _delay((unsigned long)((100)*(8000000/4000.0)));
+  1192  077E  3002               	movlw	2
+  1193  077F  00F2               	movwf	??_patron_b+2
+  1194  0780  3004               	movlw	4
+  1195  0781  00F1               	movwf	??_patron_b+1
+  1196  0782  30BA               	movlw	186
+  1197  0783  00F0               	movwf	??_patron_b
+  1198  0784                     u317:	
+  1199  0784  0BF0               	decfsz	??_patron_b,f
+  1200  0785  2F84               	goto	u317
+  1201  0786  0BF1               	decfsz	??_patron_b+1,f
+  1202  0787  2F84               	goto	u317
+  1203  0788  0BF2               	decfsz	??_patron_b+2,f
+  1204  0789  2F84               	goto	u317
+  1205  078A  0000               	nop
+  1206                           
+  1207                           ;main.c: 59:         PORTB &= ~0x10;
+  1208  078B  30EF               	movlw	239
+  1209  078C  00F0               	movwf	??_patron_b
+  1210  078D  0870               	movf	??_patron_b,w
+  1211  078E  1283               	bcf	3,5	;RP0=0, select bank0
+  1212  078F  1303               	bcf	3,6	;RP1=0, select bank0
+  1213  0790  0586               	andwf	6,f	;volatile
+  1214                           
+  1215                           ;main.c: 60:         _delay((unsigned long)((100)*(8000000/4000.0)));
+  1216  0791  3002               	movlw	2
+  1217  0792  00F2               	movwf	??_patron_b+2
+  1218  0793  3004               	movlw	4
+  1219  0794  00F1               	movwf	??_patron_b+1
+  1220  0795  30BA               	movlw	186
+  1221  0796  00F0               	movwf	??_patron_b
+  1222  0797                     u327:	
+  1223  0797  0BF0               	decfsz	??_patron_b,f
+  1224  0798  2F97               	goto	u327
+  1225  0799  0BF1               	decfsz	??_patron_b+1,f
+  1226  079A  2F97               	goto	u327
+  1227  079B  0BF2               	decfsz	??_patron_b+2,f
+  1228  079C  2F97               	goto	u327
+  1229  079D  0000               	nop
+  1230                           
+  1231                           ;main.c: 61:         PORTB &= ~0x18;
+  1232  079E  30E7               	movlw	231
+  1233  079F  00F0               	movwf	??_patron_b
+  1234  07A0  0870               	movf	??_patron_b,w
+  1235  07A1  1283               	bcf	3,5	;RP0=0, select bank0
+  1236  07A2  1303               	bcf	3,6	;RP1=0, select bank0
+  1237  07A3  0586               	andwf	6,f	;volatile
+  1238                           
+  1239                           ;main.c: 62:         _delay((unsigned long)((100)*(8000000/4000.0)));
+  1240  07A4  3002               	movlw	2
+  1241  07A5  00F2               	movwf	??_patron_b+2
+  1242  07A6  3004               	movlw	4
+  1243  07A7  00F1               	movwf	??_patron_b+1
+  1244  07A8  30BA               	movlw	186
+  1245  07A9  00F0               	movwf	??_patron_b
+  1246  07AA                     u337:	
+  1247  07AA  0BF0               	decfsz	??_patron_b,f
+  1248  07AB  2FAA               	goto	u337
+  1249  07AC  0BF1               	decfsz	??_patron_b+1,f
+  1250  07AD  2FAA               	goto	u337
+  1251  07AE  0BF2               	decfsz	??_patron_b+2,f
+  1252  07AF  2FAA               	goto	u337
+  1253  07B0  0000               	nop
+  1254                           
+  1255                           ;main.c: 63:         PORTB &= ~0x1C;
+  1256  07B1  30E3               	movlw	227
+  1257  07B2  00F0               	movwf	??_patron_b
+  1258  07B3  0870               	movf	??_patron_b,w
+  1259  07B4  1283               	bcf	3,5	;RP0=0, select bank0
+  1260  07B5  1303               	bcf	3,6	;RP1=0, select bank0
+  1261  07B6  0586               	andwf	6,f	;volatile
+  1262                           
+  1263                           ;main.c: 64:         _delay((unsigned long)((100)*(8000000/4000.0)));
+  1264  07B7  3002               	movlw	2
+  1265  07B8  00F2               	movwf	??_patron_b+2
+  1266  07B9  3004               	movlw	4
+  1267  07BA  00F1               	movwf	??_patron_b+1
+  1268  07BB  30BA               	movlw	186
+  1269  07BC  00F0               	movwf	??_patron_b
+  1270  07BD                     u347:	
+  1271  07BD  0BF0               	decfsz	??_patron_b,f
+  1272  07BE  2FBD               	goto	u347
+  1273  07BF  0BF1               	decfsz	??_patron_b+1,f
+  1274  07C0  2FBD               	goto	u347
+  1275  07C1  0BF2               	decfsz	??_patron_b+2,f
+  1276  07C2  2FBD               	goto	u347
+  1277  07C3  0000               	nop
+  1278                           
+  1279                           ;main.c: 65:         PORTB &= ~0x1E;
+  1280  07C4  30E1               	movlw	225
+  1281  07C5  00F0               	movwf	??_patron_b
+  1282  07C6  0870               	movf	??_patron_b,w
+  1283  07C7  1283               	bcf	3,5	;RP0=0, select bank0
+  1284  07C8  1303               	bcf	3,6	;RP1=0, select bank0
+  1285  07C9  0586               	andwf	6,f	;volatile
+  1286                           
+  1287                           ;main.c: 66:         _delay((unsigned long)((100)*(8000000/4000.0)));
+  1288  07CA  3002               	movlw	2
+  1289  07CB  00F2               	movwf	??_patron_b+2
+  1290  07CC  3004               	movlw	4
+  1291  07CD  00F1               	movwf	??_patron_b+1
+  1292  07CE  30BA               	movlw	186
+  1293  07CF  00F0               	movwf	??_patron_b
+  1294  07D0                     u357:	
+  1295  07D0  0BF0               	decfsz	??_patron_b,f
+  1296  07D1  2FD0               	goto	u357
+  1297  07D2  0BF1               	decfsz	??_patron_b+1,f
+  1298  07D3  2FD0               	goto	u357
+  1299  07D4  0BF2               	decfsz	??_patron_b+2,f
+  1300  07D5  2FD0               	goto	u357
+  1301  07D6  0000               	nop
+  1302                           
+  1303                           ;main.c: 67:         PORTB &= ~0x1F;
+  1304  07D7  30E0               	movlw	224
+  1305  07D8  00F0               	movwf	??_patron_b
+  1306  07D9  0870               	movf	??_patron_b,w
+  1307  07DA  1283               	bcf	3,5	;RP0=0, select bank0
+  1308  07DB  1303               	bcf	3,6	;RP1=0, select bank0
+  1309  07DC  0586               	andwf	6,f	;volatile
+  1310                           
+  1311                           ;main.c: 68:         _delay((unsigned long)((100)*(8000000/4000.0)));
+  1312  07DD  3002               	movlw	2
+  1313  07DE  00F2               	movwf	??_patron_b+2
+  1314  07DF  3004               	movlw	4
+  1315  07E0  00F1               	movwf	??_patron_b+1
+  1316  07E1  30BA               	movlw	186
+  1317  07E2  00F0               	movwf	??_patron_b
+  1318  07E3                     u367:	
+  1319  07E3  0BF0               	decfsz	??_patron_b,f
+  1320  07E4  2FE3               	goto	u367
+  1321  07E5  0BF1               	decfsz	??_patron_b+1,f
+  1322  07E6  2FE3               	goto	u367
+  1323  07E7  0BF2               	decfsz	??_patron_b+2,f
+  1324  07E8  2FE3               	goto	u367
+  1325  07E9  0000               	nop
+  1326                           
+  1327                           ;main.c: 69:     }
+  1328  07EA  3001               	movlw	1
+  1329  07EB  07F3               	addwf	patron_b@i,f
+  1330  07EC  1803               	skipnc
+  1331  07ED  0AF4               	incf	patron_b@i+1,f
+  1332  07EE  3000               	movlw	0
+  1333  07EF  07F4               	addwf	patron_b@i+1,f
+  1334  07F0  0874               	movf	patron_b@i+1,w
+  1335  07F1  3A80               	xorlw	128
+  1336  07F2  00FF               	movwf	127
+  1337  07F3  3080               	movlw	128
+  1338  07F4  027F               	subwf	127,w
+  1339  07F5  1D03               	skipz
+  1340  07F6  2FF9               	goto	u25
+  1341  07F7  3002               	movlw	2
+  1342  07F8  0273               	subwf	patron_b@i,w
+  1343  07F9                     u25:	
+  1344  07F9  1803               	btfsc	3,0
+  1345  07FA  0008               	return
+  1346  07FB  2F2F               	goto	l16
+  1347  07FC                     __end_of_patron_b:	
+  1348                           
+  1349                           	psect	text5
+  1350  0545                     __ptext5:	
+  1351 ;; *************** function _patron_a *****************
+  1352 ;; Defined at:
+  1353 ;;		line 38 in file "main.c"
+  1354 ;; Parameters:    Size  Location     Type
+  1355 ;;		None
+  1356 ;; Auto vars:     Size  Location     Type
+  1357 ;;  i               2    3[COMMON] int 
+  1358 ;; Return value:  Size  Location     Type
+  1359 ;;                  1    wreg      void 
+  1360 ;; Registers used:
+  1361 ;;		wreg, status,2, status,0, btemp+1
+  1362 ;; Tracked objects:
+  1363 ;;		On entry : 0/0
+  1364 ;;		On exit  : 0/0
+  1365 ;;		Unchanged: 0/0
+  1366 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1367 ;;      Params:         0       0       0       0       0
+  1368 ;;      Locals:         2       0       0       0       0
+  1369 ;;      Temps:          3       0       0       0       0
+  1370 ;;      Totals:         5       0       0       0       0
+  1371 ;;Total ram usage:        5 bytes
+  1372 ;; Hardware stack levels used:    1
+  1373 ;; This function calls:
+  1374 ;;		Nothing
+  1375 ;; This function is called by:
+  1376 ;;		_main
+  1377 ;; This function uses a non-reentrant model
+  1378 ;;
+  1379                           
+  1380                           
+  1381                           ;psect for function _patron_a
+  1382  0545                     _patron_a:	
+  1383                           
+  1384                           ;main.c: 39:     for (int i=0; i<2; i++) {
+  1385                           
+  1386                           ;incstack = 0
+  1387                           ; Regs used in _patron_a: [wreg+status,2+status,0+btemp+1]
+  1388  0545  01F3               	clrf	patron_a@i
+  1389  0546  01F4               	clrf	patron_a@i+1
+  1390  0547                     l639:	
+  1391                           
+  1392                           ;main.c: 40:         PORTB |= 0x1F;
+  1393  0547  301F               	movlw	31
+  1394  0548  00F0               	movwf	??_patron_a
+  1395  0549  0870               	movf	??_patron_a,w
+  1396  054A  1283               	bcf	3,5	;RP0=0, select bank0
+  1397  054B  1303               	bcf	3,6	;RP1=0, select bank0
+  1398  054C  0486               	iorwf	6,f	;volatile
+  1399                           
+  1400                           ;main.c: 41:         _delay((unsigned long)((250)*(8000000/4000.0)));
+  1401  054D  3003               	movlw	3
+  1402  054E  00F2               	movwf	??_patron_a+2
+  1403  054F  308A               	movlw	138
+  1404  0550  00F1               	movwf	??_patron_a+1
+  1405  0551  3055               	movlw	85
+  1406  0552  00F0               	movwf	??_patron_a
+  1407  0553                     u377:	
+  1408  0553  0BF0               	decfsz	??_patron_a,f
+  1409  0554  2D53               	goto	u377
+  1410  0555  0BF1               	decfsz	??_patron_a+1,f
+  1411  0556  2D53               	goto	u377
+  1412  0557  0BF2               	decfsz	??_patron_a+2,f
+  1413  0558  2D53               	goto	u377
+  1414  0559  2D5A               	nop2
+  1415                           
+  1416                           ;main.c: 42:         PORTB &= ~0x1F;
+  1417  055A  30E0               	movlw	224
+  1418  055B  00F0               	movwf	??_patron_a
+  1419  055C  0870               	movf	??_patron_a,w
+  1420  055D  1283               	bcf	3,5	;RP0=0, select bank0
+  1421  055E  1303               	bcf	3,6	;RP1=0, select bank0
+  1422  055F  0586               	andwf	6,f	;volatile
+  1423                           
+  1424                           ;main.c: 43:         _delay((unsigned long)((250)*(8000000/4000.0)));
+  1425  0560  3003               	movlw	3
+  1426  0561  00F2               	movwf	??_patron_a+2
+  1427  0562  308A               	movlw	138
+  1428  0563  00F1               	movwf	??_patron_a+1
+  1429  0564  3055               	movlw	85
+  1430  0565  00F0               	movwf	??_patron_a
+  1431  0566                     u387:	
+  1432  0566  0BF0               	decfsz	??_patron_a,f
+  1433  0567  2D66               	goto	u387
+  1434  0568  0BF1               	decfsz	??_patron_a+1,f
+  1435  0569  2D66               	goto	u387
+  1436  056A  0BF2               	decfsz	??_patron_a+2,f
+  1437  056B  2D66               	goto	u387
+  1438  056C  2D6D               	nop2
+  1439                           
+  1440                           ;main.c: 44:     }
+  1441  056D  3001               	movlw	1
+  1442  056E  07F3               	addwf	patron_a@i,f
+  1443  056F  1803               	skipnc
+  1444  0570  0AF4               	incf	patron_a@i+1,f
+  1445  0571  3000               	movlw	0
+  1446  0572  07F4               	addwf	patron_a@i+1,f
+  1447  0573  0874               	movf	patron_a@i+1,w
+  1448  0574  3A80               	xorlw	128
+  1449  0575  00FF               	movwf	127
+  1450  0576  3080               	movlw	128
+  1451  0577  027F               	subwf	127,w
+  1452  0578  1D03               	skipz
+  1453  0579  2D7C               	goto	u15
+  1454  057A  3002               	movlw	2
+  1455  057B  0273               	subwf	patron_a@i,w
+  1456  057C                     u15:	
+  1457  057C  1803               	btfsc	3,0
+  1458  057D  0008               	return
+  1459  057E  2D47               	goto	l639
+  1460  057F                     __end_of_patron_a:	
+  1461  007E                     btemp	set	126	;btemp
+  1462  007E                     wtemp0	set	126
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14      8       8
+    BANK0            80      0       0
+    BANK1            80      0       0
+    BANK3            96      0       0
+    BANK2            96      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    _main->_patron_a
+    _main->_patron_b
+    _main->_patron_c
+    _main->_patron_d
+    _main->_patron_e
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 3     3      0     150
+                                              5 COMMON     3     3      0
+                           _patron_a
+                           _patron_b
+                           _patron_c
+                           _patron_d
+                           _patron_e
+ ---------------------------------------------------------------------------------
+ (1) _patron_e                                             5     5      0      30
+                                              0 COMMON     5     5      0
+ ---------------------------------------------------------------------------------
+ (1) _patron_d                                             5     5      0      30
+                                              0 COMMON     5     5      0
+ ---------------------------------------------------------------------------------
+ (1) _patron_c                                             5     5      0      30
+                                              0 COMMON     5     5      0
+ ---------------------------------------------------------------------------------
+ (1) _patron_b                                             5     5      0      30
+                                              0 COMMON     5     5      0
+ ---------------------------------------------------------------------------------
+ (1) _patron_a                                             5     5      0      30
+                                              0 COMMON     5     5      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _patron_a
+   _patron_b
+   _patron_c
+   _patron_d
+   _patron_e
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            E      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMMON               E      8       8       1       57.1%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+STACK                0      0       0       2        0.0%
+ABS                  0      0       0       3        0.0%
+BITBANK0            50      0       0       4        0.0%
+BITSFR3              0      0       0       4        0.0%
+SFR3                 0      0       0       4        0.0%
+BANK0               50      0       0       5        0.0%
+BITSFR2              0      0       0       5        0.0%
+SFR2                 0      0       0       5        0.0%
+BITBANK1            50      0       0       6        0.0%
+BANK1               50      0       0       7        0.0%
+BITBANK3            60      0       0       8        0.0%
+BANK3               60      0       0       9        0.0%
+BITBANK2            60      0       0      10        0.0%
+BANK2               60      0       0      11        0.0%
+DATA                 0      0       0      12        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.05 build -831301201 
+Symbol Table                                                                                   Mon Apr 01 03:22:40 2019
+
+            __CFG_CP$OFF 0000                       l21 066B                       l16 072F  
+                     u15 057C                       u25 07F9                       u35 072A  
+                     u45 0666                       u55 053C                       u67 059C  
+                     u77 05AE                       u87 05C0                       u97 05D2  
+                    l639 0547                      l737 05EE                      l763 051A  
+                    l775 0591                      u107 05E4                      u117 0526  
+                    u207 069C                      u127 05FA                      u217 06B0  
+                    u137 060C                      u307 0771                      u227 06C4  
+                    u147 061B                      u317 0784                      u237 06D8  
+                    u157 062D                      u327 0797                      u247 06EC  
+                    u167 063F                      u337 07AA                      u257 0700  
+                    u177 0651             __CFG_CPD$OFF 0000                      u347 07BD  
+                    u267 0714                      u187 0674                      u357 07D0  
+                    u277 0738                      u197 0688                      u367 07E3  
+                    u287 074B                      u377 0553                      u297 075E  
+                    u387 0566             __CFG_IESO$ON 0000             __CFG_FOSC$HS 0000  
+           __CFG_LVP$OFF 0000             __CFG_WRT$OFF 0000            __CFG_FCMEN$ON 0000  
+                   _main 057F                     btemp 007E                     start 0000  
+          __CFG_MCLRE$ON 0000                    ?_main 0070            __CFG_WDTE$OFF 0000  
+                  _PORTB 0006                    _TRISB 0086            __CFG_PWRTE$ON 0000  
+         __CFG_BOREN$OFF 0000                    status 0003                    wtemp0 007E  
+        __initialization 07FC             __end_of_main 05EC                   ??_main 0075  
+                 _ANSELH 0189         __end_of_patron_a 057F         __end_of_patron_b 07FC  
+       __end_of_patron_c 072D         __end_of_patron_d 0669         __end_of_patron_e 0545  
+__end_of__initialization 07FC           __pcstackCOMMON 0070               __pmaintext 057F  
+              ?_patron_a 0070                ?_patron_b 0070                ?_patron_c 0070  
+              ?_patron_d 0070                ?_patron_e 0070                  __ptext1 0512  
+                __ptext2 05EC                  __ptext3 0669                  __ptext4 072D  
+                __ptext5 0545     end_of_initialization 07FC               ??_patron_a 0070  
+             ??_patron_b 0070               ??_patron_c 0070               ??_patron_d 0070  
+             ??_patron_e 0070      start_initialization 07FC                ___latbits 0002  
+      __size_of_patron_a 003A        __size_of_patron_b 00CF        __size_of_patron_c 00C4  
+      __size_of_patron_d 007D        __size_of_patron_e 0033                patron_a@i 0073  
+              patron_b@i 0073                patron_c@i 0073                patron_d@i 0073  
+              patron_e@i 0073        __CFG_BOR4V$BOR21V 0000            __size_of_main 006D  
+               _patron_a 0545                 _patron_b 072D                 _patron_c 0669  
+               _patron_d 05EC                 _patron_e 0512  
