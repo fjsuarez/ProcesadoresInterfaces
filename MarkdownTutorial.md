@@ -43,4 +43,5 @@ int main () {
 
 La funcion `main` imprime `Hello world!`
 
-$$x_{1,2} = {-b\pm\sqrt{b^2 - 4ac} \over 2a}.$$
+
+Voy a agregar una linea.
