@@ -11,13 +11,13 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"35 C:\Users\Francisco\MPLABXProjects\SevenSegment.X\main.c
+"35 D:\Procesadores 2019\ProcesadoresInterfaces\SevenSegment.X\main.c
 [v _main main `(v  1 e 1 0 ]
 "290 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f886.h
 [v _PORTC PORTC `VEuc  1 e 1 @7 ]
 "1461
 [v _TRISC TRISC `VEuc  1 e 1 @135 ]
-"35 C:\Users\Francisco\MPLABXProjects\SevenSegment.X\main.c
+"35 D:\Procesadores 2019\ProcesadoresInterfaces\SevenSegment.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
 "41

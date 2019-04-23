@@ -11,7 +11,7 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"38 C:\Users\Francisco\MPLABXProjects\LEDBlink.X\main.c
+"38 D:\Procesadores 2019\ProcesadoresInterfaces\LEDBlink.X\main.c
 [v _patron_a patron_a `(v  1 e 1 0 ]
 "47
 [v _patron_b patron_b `(v  1 e 1 0 ]
@@ -29,7 +29,7 @@
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
 "3273
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
-"130 C:\Users\Francisco\MPLABXProjects\LEDBlink.X\main.c
+"130 D:\Procesadores 2019\ProcesadoresInterfaces\LEDBlink.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
 "146

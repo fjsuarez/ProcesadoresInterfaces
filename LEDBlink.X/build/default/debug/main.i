@@ -7,10 +7,10 @@
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 14 "main.c"
-#pragma config FOSC = EXTRC_CLKOUT
+# 15 "main.c"
+#pragma config FOSC = HS
 #pragma config WDTE = OFF
-#pragma config PWRTE = OFF
+#pragma config PWRTE = ON
 #pragma config MCLRE = ON
 #pragma config CP = OFF
 #pragma config CPD = OFF
@@ -2391,19 +2391,118 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 32 "main.c" 2
+# 33 "main.c" 2
 
 
 
+
+
+void patron_a() {
+    for (int i=0; i<2; i++) {
+        PORTB |= 0x1F;
+        _delay((unsigned long)((250)*(8000000/4000.0)));
+        PORTB &= ~0x1F;
+        _delay((unsigned long)((250)*(8000000/4000.0)));
+    }
+}
+
+void patron_b() {
+    for (int i=0; i<2; i++) {
+        PORTB |= 0x10;
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+        PORTB |= 0x18;
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+        PORTB |= 0x1C;
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+        PORTB |= 0x1E;
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+        PORTB |= 0x1F;
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+        PORTB &= ~0x10;
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+        PORTB &= ~0x18;
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+        PORTB &= ~0x1C;
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+        PORTB &= ~0x1E;
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+        PORTB &= ~0x1F;
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+    }
+}
+
+void patron_c() {
+    for(int i=0; i<2; i++) {
+        PORTB |= 0x10;
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+        PORTB &= ~0x10;
+        PORTB |= 0x08;
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+        PORTB &= ~0x08;
+        PORTB |= 0x04;
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+        PORTB &= ~0x04;
+        PORTB |= 0x02;
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+        PORTB &= ~0x02;
+        PORTB |= 0x01;
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+        PORTB |= 0x02;
+        PORTB &= ~0x01;
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+        PORTB &= ~0x02;
+        PORTB |= 0x04;
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+        PORTB &= ~0x04;
+        PORTB |= 0x08;
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+        PORTB &= ~0x08;
+        PORTB |= 0x10;
+        _delay((unsigned long)((100)*(8000000/4000.0)));
+    }
+}
+
+void patron_d() {
+    for (int i=0; i<2; i++) {
+        PORTB |= 0x11;
+        _delay((unsigned long)((200)*(8000000/4000.0)));
+        PORTB |= 0x0A;
+        _delay((unsigned long)((200)*(8000000/4000.0)));
+        PORTB |= 0x04;
+        _delay((unsigned long)((200)*(8000000/4000.0)));
+        PORTB &= ~0x04;
+        _delay((unsigned long)((200)*(8000000/4000.0)));
+        PORTB &= ~0x0A;
+        _delay((unsigned long)((200)*(8000000/4000.0)));
+        PORTB &= ~0x11;
+        _delay((unsigned long)((200)*(8000000/4000.0)));
+    }
+}
+
+void patron_e() {
+    PORTB |= 0x15;
+    for (int i=0; i<8; i++) {
+        PORTB ^= 0x1F;
+        _delay((unsigned long)((250)*(8000000/4000.0)));
+    }
+    PORTB &= ~0x1F;
+}
 
 
 void main(void) {
-    TRISB0 = 0;
-    RB0 = 1;
+    TRISB &= ~0x1F;
+    ANSELH &= ~0x1F;
+    PORTB &= ~0x1F;
     while (1) {
-        RB0 = 1;
-        _delay((unsigned long)((500)*(8000000/4000.0)));
-        RB0 = 0;
-        _delay((unsigned long)((500)*(8000000/4000.0)));
+        patron_a();
+        _delay((unsigned long)((250)*(8000000/4000.0)));
+        patron_b();
+        _delay((unsigned long)((250)*(8000000/4000.0)));
+        patron_c();
+        _delay((unsigned long)((250)*(8000000/4000.0)));
+        patron_d();
+        _delay((unsigned long)((250)*(8000000/4000.0)));
+        patron_e();
+        _delay((unsigned long)((250)*(8000000/4000.0)));
     }
 }

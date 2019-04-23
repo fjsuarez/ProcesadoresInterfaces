@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.05\pic\dat\en_msgs.txt \
   -cs -h+dist/default/production\LEDBlink.X.production.sym \
   --cmf=dist/default/production\LEDBlink.X.production.cmf -z -Q16F886 \
-  -oC:\Users\FRANCI~1\AppData\Local\Temp\sgvs.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\LAB03-~1\AppData\Local\Temp\s1ro.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/LEDBlink.X.production.map -E1 -ver=XC8 \
   --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -pfunctab=ENTRY -ACONFIG=02007h-02008h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
-  -DENTRY=2 -k C:\Users\FRANCI~1\AppData\Local\Temp\sgvs.o \
+  -DENTRY=2 -k C:\Users\LAB03-~1\AppData\Local\Temp\s1ro.o \
   dist/default/production\LEDBlink.X.production.o 
 
 Object code version is 3.11
@@ -28,7 +28,7 @@ Machine type is 16F886
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\FRANCI~1\AppData\Local\Temp\sgvs.o
+C:\Users\LAB03-~1\AppData\Local\Temp\s1ro.o
                 end_init                              0        0        3        0       0
                 config                             2007     2007        2     400E       0
 dist/default/production\LEDBlink.X.production.o

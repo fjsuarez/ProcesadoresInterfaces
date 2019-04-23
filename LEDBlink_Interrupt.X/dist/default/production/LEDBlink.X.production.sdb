@@ -1,0 +1,59 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F886 ]
+[d frameptr 6 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"37 D:\Procesadores 2019\LEDBlink.X\main.c
+[v _ISR_alternar_led ISR_alternar_led `II(v  1 e 1 0 ]
+"47
+[v _main main `(v  1 e 1 0 ]
+"228 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f886.h
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+[s S24 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"245
+[u S33 . 1 `S24 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES33  1 e 1 @6 ]
+"1399
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"2258
+[v _IOCB IOCB `VEuc  1 e 1 @150 ]
+"3273
+[v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
+"3711
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"3741
+[v _INTEDG INTEDG `VEb  1 e 0 @1038 ]
+"3855
+[v _PEIE PEIE `VEb  1 e 0 @94 ]
+"3918
+[v _RB0 RB0 `VEb  1 e 0 @48 ]
+"3942
+[v _RBIE RBIE `VEb  1 e 0 @91 ]
+"3945
+[v _RBIF RBIF `VEb  1 e 0 @88 ]
+"47 D:\Procesadores 2019\LEDBlink.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"68
+} 0
+"37
+[v _ISR_alternar_led ISR_alternar_led `II(v  1 e 1 0 ]
+{
+"45
+} 0

@@ -11,14 +11,61 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"37 C:\Users\Francisco\MPLABXProjects\LEDBlink.X\main.c
+"38 D:\Procesadores 2019\ProcesadoresInterfaces\LEDBlink.X\main.c
+[v _patron_a patron_a `(v  1 e 1 0 ]
+"47
+[v _patron_b patron_b `(v  1 e 1 0 ]
+"72
+[v _patron_c patron_c `(v  1 e 1 0 ]
+"103
+[v _patron_d patron_d `(v  1 e 1 0 ]
+"120
+[v _patron_e patron_e `(v  1 e 1 0 ]
+"130
 [v _main main `(v  1 e 1 0 ]
-"3918 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f886.h
-[v _RB0 RB0 `VEb  1 e 0 @48 ]
-"4206
-[v _TRISB0 TRISB0 `VEb  1 e 0 @1072 ]
-"37 C:\Users\Francisco\MPLABXProjects\LEDBlink.X\main.c
+"228 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic16f886.h
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"1399
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"3273
+[v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
+"130 D:\Procesadores 2019\ProcesadoresInterfaces\LEDBlink.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"46
+"146
+} 0
+"120
+[v _patron_e patron_e `(v  1 e 1 0 ]
+{
+"122
+[v patron_e@i i `i  1 a 2 3 ]
+"127
+} 0
+"103
+[v _patron_d patron_d `(v  1 e 1 0 ]
+{
+"104
+[v patron_d@i i `i  1 a 2 3 ]
+"118
+} 0
+"72
+[v _patron_c patron_c `(v  1 e 1 0 ]
+{
+"73
+[v patron_c@i i `i  1 a 2 3 ]
+"101
+} 0
+"47
+[v _patron_b patron_b `(v  1 e 1 0 ]
+{
+"48
+[v patron_b@i i `i  1 a 2 3 ]
+"70
+} 0
+"38
+[v _patron_a patron_a `(v  1 e 1 0 ]
+{
+"39
+[v patron_a@i i `i  1 a 2 3 ]
+"45
 } 0

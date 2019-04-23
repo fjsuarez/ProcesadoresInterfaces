@@ -128,7 +128,7 @@ void patron_e() {
 
 
 void main(void) {
-    TRISB &= ~0x1F;
+    TRISB &= ~0x1F; // 0b00011111
     ANSELH &= ~0x1F;
     PORTB &= ~0x1F;
     while (1) {
